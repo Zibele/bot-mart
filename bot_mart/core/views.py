@@ -6,10 +6,10 @@ from rest_framework.decorators import api_view
 
 # Create your views here.
 @api_view(['GET'])
-def home(request,pk):
+def home(request,title):
     #todo
     try:
-        core = Core.objects.get(pk=pk)
+        core = Core.objects.get(title=title)
     except Core.DoesNotExist:
         return JsonResponse({'message': 'home does not exist'},  status = status.HTTP_404_NOT_FOUND)
 
